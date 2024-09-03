@@ -1,0 +1,42 @@
+    <div class="<%='overlay-transition-black 2nd' if URI(request.referrer).path == '/'%>"></div>
+    <%# bouton a placer %>
+    <button class="carousel-control-prev postion  control-" type="button" data-bs-target="#carousel-universes" data-bs-slide="prev" style="
+    height: fit-content;
+    margin-top: 29%;
+    margin-left: 31rem;
+    opacity: 0.9;
+">
+      <span class="carousel-control-prev"><%= image_tag 'left-2.png', alt: 'image de fleche  a gauche' %></span>
+    </button>
+    <button class="carousel-control-next position" type="button" data-bs-target="#carousel-universes" data-bs-slide="next"style="
+    height: fit-content;
+    margin-top: 29%;
+    margin-right: 33rem;
+    opacity: 0.9;
+">
+      <span class="carousel-control-next"><%= image_tag 'right-2.png', alt: 'image  de fleche a droite' %></span>
+    </button>
+
+
+    <%# contenu de la page %>
+<div class="portal"></div>
+<div class="container_universes">
+  <div id="carousel-universes" class="carousel slide carousel-fade">
+    <div class="carousel-inner">
+      <% @universes.each_with_index do |universe, index| %>
+        <div class="carousel-item <%= 'active' if index.zero? %>" data-controller="carousel-universe" data-carousel-universe-universe-value=<%=universe.name%>>
+          <div class="universe" style="background-image:url(<%= cl_image_path(universe.photo.key) %>)">
+            <div class="opacity-universes-cards"></div>
+            <div class="text">
+              <h2><%= universe.name %></h2>
+              <p><%= universe.description %></p>
+              <%=  link_to universe_path(universe) do %>
+              <button class="button-<%= universe.name.parameterize %>">Découvrir</button>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        </div>
+    </div>
+</div>

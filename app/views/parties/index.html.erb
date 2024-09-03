@@ -1,0 +1,8 @@
+<div class="party-index">
+  <h1>Mes parties</h1>
+  <div class="party-cards">
+    <% @parties.each do |party| %>
+      <%= render partial: "cards_index_party", locals: { party: party } %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<!-- app/views/messages/_message.html.erb -->
+<div class="message">
+  <small>
+    <strong><%= message.user.pseudo %></strong>
+    <i>
+      <% if message.created_at.to_date == Date.current %>
+        <%= message.created_at.strftime("%H:%M") %>
+      <% else %>
+        <%= "J+#{(Date.current - message.created_at.to_date).to_i}" %>
+        <%= message.created_at.strftime("%H:%M") %>
+      <% end %>
+    </i>
+  </small>
+  <p><%= message.content %></p>
+</div>

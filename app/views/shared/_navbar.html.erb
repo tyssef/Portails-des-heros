@@ -1,0 +1,25 @@
+<!-- app/views/shared/_navbar.html.erb -->
+<div data-controller="navbar">
+<nav class="off-canvas" id="offCanvasNavbar" data-navbar-target="navbar">
+  <div class="navbar-content">
+    <div class="list-link-navbar">
+      <ul class="ul-navbar">
+        <li class="list-navbar"><%= link_to 'Accueil', root_path, class: 'link-navbar' %></li>
+        <li class="list-navbar"><%= link_to 'Lexique', posts_path, class: 'link-navbar' %></li>
+        <li class="list-navbar"><%= link_to 'Univers', universes_path, class: 'link-navbar' %></li>
+        <li class="list-navbar"><%= link_to 'Créer mon personnage', universes_path, class: 'link-navbar' %></li>
+        <li class="list-navbar"><%= link_to 'Tableau de bord', dashboard_index_path, class: 'link-navbar' %></li>
+      </ul>
+    </div>
+    <div class="div-avatar-pseudo">
+      <%= image_tag "dice.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, aria: { haspopup: "true", expanded: "false" } %>
+      <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <%= link_to 'Log out', destroy_user_session_path, class: "dropdown-item", data: { turbo_method: :delete } %>
+      </div>
+    </div>
+  </div>
+</nav>
+<button class="off-canvas-toggle" id="offCanvasToggle" data-navbar-target="toggle"> <%= image_tag 'dice.png', alt: 'image de dé', class: "avatar" %> </button>
+</div>
