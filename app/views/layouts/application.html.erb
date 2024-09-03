@@ -1,16 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>PortailsDesHeros</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+<head>
+    <title>Le Portail Des Heros : prenez part à l'aventure</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= favicon_link_tag %>
     <%= javascript_importmap_tags %>
-  </head>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body class="<%= controller_name %>-<%= action_name %>">
+
+  <% if Rails.env.development? %>
+    <%= render "shared/flashes" %>
+  <% end %>
+
+    <div class="main-layout-container" style="display: flex">
+
+        <% if action_name != "home" %>
+        <%= render "shared/navbar" %>
+        <% end %>
+
+        <div class="pages-content " data-controller="fading">
+            <%= yield %>
+        </div>
+    </div>
+</body>
+
 </html>

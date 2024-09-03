@@ -1,0 +1,77 @@
+<!-- app/views/characters/show.html.erb -->
+<div data-controller="backstory" data-backstory-character-id-value="<%= @character.id %>">
+  <div class="text-affichage-show-character-div">
+    <div class="other_title_color">
+      <h1 class="text-affichage-show-character">
+        Félicitations ! Votre personnage est prêt !
+      </h1>
+    </div>
+    <p class="text-affichage-description">
+      Lancez une recherche de partie ou conservez-le pour plus tard. Retrouvez-le dans votre tableau de bord.
+    </p>
+  </div>
+
+  <div class="show-character-container">
+    <div class="show-character-img-content">
+      <!-- Utilisation de la partial loader en attendant l'arrivée de l'image -->
+      <div class="show-character-image-div" data-backstory-target="picture">
+        <% if @character.photo.attached? %>
+          <%= render "picture" %>
+        <% else %>
+          <%= render "loader" %>
+        <% end %>
+      </div>
+
+      <div class="show-character-content">
+        <div class="show-character-name-div">
+          <h1 class="show-character-name"><%= @character.name %></h1>
+        </div>
+        <div class="show-character-univers-race-class-available">
+          <div class="show-character-univers-race-class-available-display">
+            <p><i class="fas fa-globe"></i></p>
+            <p><i class="fas fa-paw"></i></p>
+            <p><i class="fas fa-user-shield"></i></p>
+          </div>
+          <div class="show-character-univers-race-class-available-content">
+            <p><%= @character.universe.name %></p>
+            <p><%= @character.race.name %></p>
+            <p><%= @character.univers_class.name %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="show-character-caracteristic">
+      <div class="show-character-caracteristic-display">
+        <p>Force</p>
+        <p>Dextérité</p>
+        <p>Intelligence</p>
+        <p>Constitution</p>
+        <p>Sagesse</p>
+        <p>Charisme</p>
+      </div>
+      <div class="show-character-caracteristic-content">
+        <p><%= @character.strength %></p>
+        <p><%= @character.dexterity %></p>
+        <p><%= @character.intelligence %></p>
+        <p><%= @character.constitution %></p>
+        <p><%= @character.wisdom %></p>
+        <p><%= @character.charisma %></p>
+      </div>
+    </div>
+
+    <!-- Utilisation de la partial loader en attendant la backstory -->
+    <div id="backstory-content" data-backstory-target='backstory'>
+      <%= render @character.backstory ? "backstory" : "loader" %>
+    </div>
+
+    <!-- Action Utilisateur -->
+    <div class="btn-show-container">
+      <%= link_to 'Découvrir le lexique', posts_path, class: "button-#{@character.universe.name.downcase.tr(' ', '-')}" %>
+      <% if active_party = @character.parties.where('party_characters.status = ?', 'active').first %>
+        <%= link_to 'Rejoindre ma partie', party_path(active_party), class: "button-#{@character.universe.name.downcase.tr(' ', '-')}" %>
+      <% else %>
+        <%= link_to 'Rejoindre ma partie', parties_path, class: "button-#{@character.universe.name.downcase.tr(' ', '-')}" %>
+      <% end %>
+    </div>
+  </div>
+

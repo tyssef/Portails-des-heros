@@ -1,0 +1,8 @@
+<div class="characters-index">
+  <h1>Mes personnages</h1>
+  <div class="characters-cards">
+    <% @characters.each do |character| %>
+      <%= render partial: "card_index_character", locals: { character: character } %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+.donjons-et-dragons::after,
+.call-of-cthulhu::after,
+.runequest::after {
+  content: "";
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.6;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: fixed;
+  z-index: -1;
+}
+
+.donjons-et-dragons::after {
+  background-image: url('background-dnd.jpg');
+}
+
+.call-of-cthulhu::after {
+  background-image: url('background-cthulhu.jpg');
+}
+
+.runequest::after {
+  background-image: url('background-runequest.jpg');
+}
+
+
+.donjons-et-dragons-bg {
+  background-image: url('background-dnd.jpg');
+}
+
+.call-of-cthulhu-bg {
+  background-image: url('background-cthulhu.jpg');
+}
+
+.runequest-bg {
+  background-image: url('background-runequest.jpg');
+}

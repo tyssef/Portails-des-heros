@@ -1,0 +1,71 @@
+// Define the base button styles
+.button-base {
+  background: #00000069;
+  color: white;
+  letter-spacing: 1px;
+  padding: 5px 15px;
+  text-align: center;
+  text-decoration: none;
+  border-style: none;
+  font-weight: 400;
+  font-size: 19px !important;
+  font-family: "Cinzel", serif;
+  margin: 10px;
+  transition-duration: 0.5s;
+
+  border-radius: 5px;
+
+  &:hover {
+    background-color: #14141494;
+  }
+}
+
+// Define specific styles for each button type
+.button-call-of-cthulhu {
+  @extend .button-base;
+  border: 2px solid #cf0909;
+  box-shadow: 4px 5px 10px -6px #cf090983;
+  &:hover {
+    color: #d3b4b4;
+  }
+}
+
+.button-donjons-et-dragons {
+  @extend .button-base;
+  border: 2px solid;
+  border-color: #edd86459;
+  box-shadow: 4px 5px 10px -6px #edd86459;
+
+  &:hover {
+    color: rgb(247, 231, 87);
+  }
+}
+
+.button-runequest {
+  @extend .button-base;
+  border:  2px solid ;
+  border-color:#7a84bbcc;
+  box-shadow: 4px 5px 10px -6px #7a84bb7a;
+
+  &:hover {
+    color: #a8aab4;
+  }
+}
+
+// Specific button with different styles
+.btn-dice{
+  background-color: transparent;
+  border: none;
+  img{
+    height: 100px;
+  }
+}
+.rotated {
+  transform: rotate(360deg);
+  transition: transform 1.5s;
+}
+
+// <!-- HTML !-->
+// <button class="button-85" role="button">Button 85</button>
+
+/* CSS */

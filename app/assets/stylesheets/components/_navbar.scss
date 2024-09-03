@@ -1,0 +1,85 @@
+.navbar-site {
+  flex: 0  0 231px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  transition: top 0.3s;
+  position: sticky;
+  top: 0;
+
+  .ul-navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .list-navbar {
+    float: left;
+    font-family: $headers-font; // Utilisation de la variable pour la police des titres
+
+    .link-navbar {
+      display: block;
+      color: rgb(0, 0, 0);
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      transition: 1s;
+      font-family: $headers-font;
+
+      .link-navbar:hover {
+        background-color: #0000006e;
+        text-decoration: none;
+        color: rgb(255, 252, 252);
+      }
+    }
+
+  }
+
+  .div-avatar-pseudo {
+    width: 80%;
+    height: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid #838383;
+  }
+
+  nav {
+    background-color: #494949;
+    width: 100%;
+  }
+
+  .list-link-navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar-content {
+    height: 100%;
+    align-content: space-between;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+  }
+
+  .navbar-portail-des-heros {
+    color: #EBD18B;
+    text-align: center;
+    width: 80%;
+    font-family: $headers-font; // Utilisation de la variable pour la police des titres
+    display: grid;
+    padding: 14px 16px;
+    margin-top: 10px;
+    border-bottom: 1px solid #838383;
+  }
+
+  .avatar {
+    height: 60px;
+    width: 60px;
+  }
+}

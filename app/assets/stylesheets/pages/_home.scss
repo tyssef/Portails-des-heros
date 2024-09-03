@@ -1,0 +1,165 @@
+// CSS TOUT LE SITE
+.pages-content{
+  background-color: #000000d5;
+  width: 100vw;
+  background-attachment: fixed;
+  position: relative;
+  min-height: 100vh;
+
+  .overlay-transition {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: black;
+    opacity: 0;
+    transition: opacity 1s ease-out;
+    z-index: 5;
+  }
+  .overlay-transition-black {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: black;
+    opacity: 1;
+    z-index: 5;
+    transition: opacity 1s ease-in;
+   }
+}
+
+// CSS HOME PAGE
+.hero-banner {
+  width: 100%;
+  background-size: cover;
+  background-position: top;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 100px;
+  font-family: $body-font; // Utilisation de la police pour le corps du texte
+
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: $headers-font; // Utilisation de la police pour les en-têtes
+  }
+
+  p {
+    font-family: $text-font; // Utilisation de la police pour les paragraphes
+  }
+
+  .btn-cta {
+    padding: 9px;
+    text-align: center;
+    width: auto; // Ajuste automatiquement la largeur en fonction du texte
+    height: auto; // Ajuste automatiquement la hauteur en fonction du texte
+    background: rgba(0, 0, 0, 0.616);
+    border-style: none;
+    color: #d79c1f;
+    font-size: 19px;
+    letter-spacing: 3px;
+    font-family: $headers-font; // Utilisation de la police Cinzel
+    font-weight: 100;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    transition: all .5s;
+    box-shadow: 0px 1px 2px rgba(0,0,0,.2);
+    white-space: nowrap; // Empêche le texte de se dérouler en plusieurs lignes
+    z-index: 6;
+  }
+  .btn-cta span {
+    position: absolute;
+    display: block;
+  }
+  .btn-cta span:nth-child(1) {
+    height: 3px;
+    width: 100%; // Ajuste automatiquement la largeur en fonction du bouton
+    top: 0px;
+    left: -100%; // Ajuste la position en fonction de la nouvelle largeur
+    background: linear-gradient(to right, rgba(0,0,0,0), #f6e58d);
+    border-top-right-radius: 1px;
+    border-bottom-right-radius: 1px;
+    animation: span1 2s linear infinite;
+    animation-delay: 2.3s;
+  }
+
+  @keyframes span1 {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+  .btn-cta span:nth-child(2) {
+    height: 100%; // Ajuste automatiquement la hauteur en fonction du bouton
+    width: 3px;
+    top: -100%; // Ajuste la position en fonction de la nouvelle hauteur
+    right: 0px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0), #f6e58d);
+    border-bottom-left-radius: 1px;
+    border-bottom-right-radius: 1px;
+    animation: span2 2s linear infinite;
+    animation-delay: 3.3s;
+  }
+  @keyframes span2 {
+    0% {
+      top: -100%;
+    }
+    100% {
+      top: 100%;
+    }
+  }
+  .btn-cta span:nth-child(3) {
+    height: 3px;
+    width: 100%; // Ajuste automatiquement la largeur en fonction du bouton
+    right: -100%; // Ajuste la position en fonction de la nouvelle largeur
+    bottom: 0px;
+    background: linear-gradient(to left, rgba(0,0,0,0), #f6e58d);
+    border-top-left-radius: 1px;
+    border-bottom-left-radius: 1px;
+    animation: span3 2s linear infinite;
+    animation-delay: 4.3s;
+  }
+  @keyframes span3 {
+    0% {
+      right: -100%;
+    }
+    100% {
+      right: 100%;
+    }
+  }
+
+  .btn-cta span:nth-child(4) {
+    height: 100%; // Ajuste automatiquement la hauteur en fonction du bouton
+    width: 3px;
+    bottom: -100%; // Ajuste la position en fonction de la nouvelle hauteur
+    left: 0px;
+    background: linear-gradient(to top, rgba(0,0,0,0), #f6e58d);
+    border-top-right-radius: 1px;
+    border-top-left-radius: 1px;
+    animation: span4 2s linear infinite;
+    animation-delay: 5.3s;
+  }
+  @keyframes span4 {
+    0% {
+      bottom: -100%;
+    }
+    100% {
+      bottom: 100%;
+    }
+  }
+
+  .btn-cta:hover {
+    transition: all .5s;
+    transform: scale(1.1);
+    box-shadow: 0px 3px 5px rgba(0,0,0,.4);
+  }
+  .btn-cta:hover span {
+    animation-play-state: paused;
+  }
+}

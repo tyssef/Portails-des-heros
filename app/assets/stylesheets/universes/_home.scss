@@ -1,0 +1,114 @@
+.portal{
+  background-image: url("Portail-univers.png");
+  top: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 2;
+  height: 100vh;
+}
+.carousel-control-next, .carousel-control-prev{
+  z-index: 4;
+  color: transparent;
+  background-size: cover;
+  opacity: 1;
+  img{
+    height: 100px;
+  }
+
+}
+.container_universes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin-left: -23px;
+  padding-top: 40px;
+
+  #carousel-universes{
+    width: 80vh;
+  }
+  .universe-selector{
+    position: relative;
+    z-index: 4
+  }
+
+  .carousel-unset{
+    position: unset;
+  }
+
+
+  .universe {
+    height: 90vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    z-index: 0;
+    justify-content: center;
+
+    .opacity-universes-cards{
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.7);
+      position: absolute;
+      z-index: 1;
+    }
+
+  }
+
+  .text {
+    padding-top: 45%;
+    transition: 0.5s ease;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+    z-index: 3!important;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    h2{
+      font-size: 30px;
+      margin-bottom: 50px;
+      font-weight: bold;
+      opacity: 1;
+    }
+
+    p{
+      opacity: 1;
+      padding-left: 25%;
+      padding-right: 25%;
+      font-size: 20px;
+      margin-bottom: 15px;
+      font-weight: semi-bold;
+    }
+
+
+  }
+  // .titre {
+  //   color: white;
+  //   font-size: 30px;
+  //   text-align: center;
+  //   margin-top: 50px;
+  //   text-shadow: 1px 1px 2px #0000008e;
+
+  //   p {
+  //     font-size: 15px;
+  //     margin-bottom: 50px;
+  //   }
+
+  //   h1 {
+  //     font-size: 40px;
+  //   }
+  // }
+
+}

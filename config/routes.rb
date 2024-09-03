@@ -1,10 +1,44 @@
+# config/routes.rb
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  authenticate :user, ->(user) { user.admin? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get "up" => "rails/health#show", as: :rails_health_check
+  devise_for :users
+  root to: "pages#home"
 
-  # Defines the root path route ("/")
-  # root "posts#index"
+  # A FAIRE : Limiter le nombre de routes pour des questions de sécurité
+  resources :characters, path: 'mes_personnages' do
+    member do
+      get 'image' # route pour afficher l'image générée par IA
+      get :backstory_partial # route pour afficher le contenu de l'histoire générée par IA
+    end
+  end
+
+  resources :parties, path: 'mes_parties' do
+    resources :messages, only: :create
+  end
+
+  # Création d'une route pour afficher tous les personnages créés sur le serveur
+  get '/tous_les_personnages', to: 'characters#all_characters', as: 'tous_les_personnages'
+
+  # Routes pour notre lexique (Post)
+  resources :posts, only: [:index, :show]
+
+  # Routes vers les tutos
+  resources :universes do
+    member do
+      get :tutorials
+    end
+  end
+
+  # Liste des tutos
+  resources :tutorials, only: [:index]
+
+  # dashboard
+  resources :dashboard
+  
+  mount ActionCable.server => '/cable'
 end
